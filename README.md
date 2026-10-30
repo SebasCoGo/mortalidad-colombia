@@ -4,11 +4,14 @@
 
 **Integrante:** Sebastian Contreras Gomez
 
+- [Aplicación en Render](https://mortalidad-colombia-dnrc.onrender.com/)
 - [Repositorio en GitHub](https://github.com/SebasCoGo/mortalidad-colombia)
 
 ## Introducción
 
 Este proyecto presenta una aplicación web para analizar las defunciones no fetales registradas en Colombia durante 2019. Se utilizaron los archivos de mortalidad, causas de muerte y división territorial entregados en la actividad. La base contiene 244.355 registros.
+
+![Vista general de la aplicación y filtros](docs/capturas/01-resumen.png)
 
 ## Objetivo
 
@@ -23,6 +26,7 @@ Analizar la distribución de las muertes por departamento, mes, causa, sexo y gr
 | `assets/` | Estilos de la aplicación |
 | `data/raw/` | Los tres archivos Excel originales |
 | `data/` | Datos procesados, catálogos y mapa departamental |
+| `docs/capturas/` | Capturas de la aplicación desplegada |
 | `scripts/prepare_data.py` | Procesamiento de los archivos originales |
 | `tests/` | Pruebas de datos y funcionamiento |
 | `requirements.txt` | Librerías necesarias para ejecutar la aplicación |
@@ -42,7 +46,7 @@ Python 3.12 y las siguientes librerías:
 
 ## Software
 
-Se utilizaron Python para el procesamiento, pandas para organizar los datos, Dash para la aplicación y Plotly para las visualizaciones. El proyecto utiliza GitHub para gestionar el código e incluye la configuración para desplegarlo en Render. La presentación se definió con CSS.
+Se utilizaron Python para el procesamiento, pandas para organizar los datos, Dash para la aplicación y Plotly para las visualizaciones. El proyecto se publicó en GitHub y se desplegó en Render. La presentación se definió con CSS.
 
 ## Instalación
 
@@ -63,7 +67,7 @@ Los datos procesados están incluidos. Para volver a obtenerlos desde los Excel,
 
 ## Despliegue en Render
 
-Para desplegar la aplicación en Render, crear un servicio web conectado al repositorio de GitHub, seleccionar Python como entorno de ejecución y configurar estos comandos:
+La aplicación está publicada como un servicio web conectado al repositorio de GitHub. Para reproducir el despliegue, seleccionar Python como entorno de ejecución y configurar estos comandos:
 
 **Instalación de dependencias:**
 
@@ -91,6 +95,8 @@ Bogotá D. C. registra 38.760 defunciones, Antioquia 34.473 y Valle del Cauca 28
 
 Diciembre presenta el mayor número de muertes, con 21.678, y febrero el menor, con 17.974. Se observan variaciones durante el año; al compararlas se debe tener en cuenta que los meses tienen distinta duración.
 
+![Mapa departamental y evolución mensual de las defunciones](docs/capturas/02-mapa-meses.png)
+
 ### 3. Cinco municipios con más casos X95
 
 | Municipio | Casos |
@@ -109,19 +115,27 @@ Margarita, San Fernando, Bituima, Alto Baudó, Nuquí, El Calvario, La Tola, Hat
 
 Se consideraron los menores conteos positivos. Los empates se resolvieron por código DANE y se excluyeron los 13 territorios del catálogo que no tienen registros en la base.
 
+![Municipios con más casos X95 y territorios con menos defunciones](docs/capturas/03-rankings.png)
+
 ### 5. Diez principales causas de muerte
 
 El código I219, infarto agudo del miocardio sin otra especificación, ocupa el primer lugar con 35.088 casos. Le siguen J449, enfermedad pulmonar obstructiva crónica no especificada, con 7.210, y J440, enfermedad pulmonar obstructiva crónica con infección aguda de las vías respiratorias inferiores, con 6.445.
 
 La tabla muestra las diez causas con su código, nombre y número de casos. La opción de tres caracteres permite reunir los subcódigos de una misma categoría CIE-10.
 
+![Tabla de las diez principales causas de muerte](docs/capturas/04-causas.png)
+
 ### 6. Muertes por sexo y departamento
 
 Se registran 134.573 hombres, 109.689 mujeres y 93 casos de sexo indeterminado. Los hombres representan aproximadamente el 55,1 % del total. Las barras apiladas permiten comparar esta distribución entre departamentos.
 
+![Muertes por sexo y departamento](docs/capturas/05-sexo.png)
+
 ### 7. Distribución por grupo de edad
 
 El grupo de 60 a 84 años concentra 115.453 muertes, equivalentes al 47,2 % del total. Le sigue el grupo de 85 a 100+ años, con 56.061. Hay 23 registros con edad desconocida. Se utilizaron las categorías de `GRUPO_EDAD1` indicadas en la actividad.
+
+![Distribución de las defunciones por etapa de vida](docs/capturas/06-edades.png)
 
 ## Criterios del análisis
 
